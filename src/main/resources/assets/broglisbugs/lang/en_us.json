@@ -15,7 +15,7 @@
   //Blocks
 
   //Creative Tabs
-  "itemGroup.broglisbugs": "Broglis Bugs",
+  "itemGroup.broglisbugstab": "Broglis Bugs",
 
   //Entities
   "entity.broglisbugs.entity_slug": "Slug" ,
