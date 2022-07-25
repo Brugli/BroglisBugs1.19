@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "broglisbugs:item/item_bug_net"
+	}
+}
