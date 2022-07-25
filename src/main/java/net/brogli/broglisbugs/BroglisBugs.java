@@ -1,6 +1,7 @@
 package net.brogli.broglisbugs;
 
 import com.mojang.logging.LogUtils;
+import net.brogli.broglisbugs.item.BrogliBugsItems;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,8 @@ public class BroglisBugs {
     public BroglisBugs()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        BrogliBugsItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

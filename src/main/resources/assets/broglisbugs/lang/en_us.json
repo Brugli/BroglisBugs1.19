@@ -1,0 +1,29 @@
+{
+  //Items
+  "item.broglisbugs.item_slug": "Slug",
+  "item.broglisbugs.item_banana_slug": "Banana Slug",
+  "item.broglisbugs.item_crispy_slug": "Crispy Slug",
+  "item.broglisbugs.item_snail": "Snail",
+  "item.broglisbugs.item_cooked_snail": "Cooked Snail",
+  "item.broglisbugs.item_slime_bottle": "Bottle Of Slime",
+  "item.broglisbugs.item_banana": "Banana",
+  "item.broglisbugs.item_stick_insect": "Stick Insect",
+  "item.broglisbugs.item_netting": "Netting",
+  "item.broglisbugs.item_grasshopper": "Grasshopper",
+  "item.broglisbugs.item_cooked_grasshopper": "Cooked Grasshopper",
+
+  //Blocks
+
+  //Creative Tabs
+  "itemGroup.broglisbugs": "Broglis Bugs",
+
+  //Entities
+  "entity.broglisbugs.entity_slug": "Slug" ,
+  "entity.broglisbugs.entity_banana_slug": "Banana Slug",
+  "entity.broglisbugs.entity_ant": "Ant",
+  "entity.broglisbugs.entity_snail": "Snail",
+  "entity.broglisbugs.entity_grasshopper": "Grasshopper" ,
+
+  //Tools
+  "item.broglisbugs.item_bug_net": "Bug Net"
+}
