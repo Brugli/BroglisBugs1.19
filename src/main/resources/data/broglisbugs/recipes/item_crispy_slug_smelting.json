@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:smelting" ,
+	"ingredient": { "tag": "broglisbugs:item_slugs" },
+	"result": { "item": "broglisbugs:item_crispy_slug" },
+	"experience": 0,
+	"cookingtime": 200
+}	

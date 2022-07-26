@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values":
+	[
+		"broglisbugs:item_slug",
+		"broglisbugs:item_banana_slug"
+	]
+}

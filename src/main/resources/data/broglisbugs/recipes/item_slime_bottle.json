@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:smelting" ,
+	"ingredient": { "item": "broglisbugs:item_slime_bottle" },
+	"result": { "item": "minecraft:slime_ball" },
+	"experience": 0,
+	"cookingtime": 200
+}	

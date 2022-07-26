@@ -69,7 +69,7 @@ public class BroglisBugsItems {
     public static final RegistryObject<Item> ITEM_GRASSHOPPER = ITEMS.register("item_grasshopper",
             () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(0)
-                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 300, 4, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 150, 2, false, true), 1)
                             .alwaysEat().build())));
 
     // Cooked Grasshopper

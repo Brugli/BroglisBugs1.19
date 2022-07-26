@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " X ",
+    " X "
+  ],
+  "key": {
+    "#": {
+      "item": "broglisbugs:item_netting"
+    },
+    "X": {
+      "tag": "broglisbugs:stick"
+    }
+  },
+  "result": {
+    "item": "broglisbugs:item_bug_net",
+    "count": 1
+  }
+}

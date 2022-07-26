@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:smelting" ,
+	"ingredient": { "item": "broglisbugs:item_snail" },
+	"result": { "item": "broglisbugs:item_cooked_snail" },
+	"experience": 0,
+	"cookingtime": 200
+}	
