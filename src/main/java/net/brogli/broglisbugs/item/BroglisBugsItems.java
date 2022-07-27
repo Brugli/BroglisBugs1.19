@@ -1,6 +1,8 @@
 package net.brogli.broglisbugs.item;
 
 import net.brogli.broglisbugs.BroglisBugs;
+import net.brogli.broglisbugs.item.custom.ItemSlug;
+import net.brogli.broglisbugs.item.tool.ItemBugNet;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -16,8 +18,8 @@ public class BroglisBugsItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, BroglisBugs.MOD_ID);
 
     //Slug
-    public static final RegistryObject<Item> ITEM_SLUG = ITEMS.register("item_slug",
-            () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+    public static final RegistryObject<ItemSlug> ITEM_SLUG = ITEMS.register("item_slug",
+            () -> new ItemSlug(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(0)
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 300, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 400, 4, false, true), 1)
@@ -82,9 +84,13 @@ public class BroglisBugsItems {
     // Tools
 
     // Bug Net
-    /**public static final RegistryObject<ItemBugNet> ITEM_BUG_NET = ITEMS.register("item_bug_net",
-            () -> new ItemBugNet(BroglisBugsTiers.BUG_NET, new Item.Properties().tab(BroglisBugs.BROGLIS_BUGS_TAB)));
-**/
+    public static final RegistryObject<ItemBugNet> ITEM_BUG_NET = ITEMS.register("item_bug_net",
+            () -> new ItemBugNet(BroglisBugsTiers.BUG_NET, new Item.Properties().tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)));
+
+    // Netting
+    public static final RegistryObject<Item> ITEM_NETTING = ITEMS.register("item_netting",
+            () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
