@@ -28,9 +28,9 @@ public class EntitySlugRenderer extends GeoEntityRenderer<EntitySlug> {
                                     MultiBufferSource renderTypeBuffer, VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
         if(animatable.isBaby()) {
-            stack.scale(0.8F,0.8F, 0.8F);
+            stack.scale(0.35F,0.35F, 0.35F);
         } else {
-            stack.scale(1.25F, 1.25F, 1.25F);
+            stack.scale(0.7F, 0.7F, 0.7F);
         }
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }

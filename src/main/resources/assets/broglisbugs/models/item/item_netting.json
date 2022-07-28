@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "broglisbugs:items/item_netting"
+		"layer0": "broglisbugs:item/item_netting"
 	}
 }
