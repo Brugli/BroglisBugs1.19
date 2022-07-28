@@ -2,32 +2,33 @@ package net.brogli.broglisbugs.entity.client;
 
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.custom.EntitySlug;
+import net.brogli.broglisbugs.entity.custom.EntitySnail;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
-public class EntitySlugModel extends AnimatedGeoModel<EntitySlug> {
+public class EntitySnailModel extends AnimatedGeoModel<EntitySnail> {
 
     @Override
-    public ResourceLocation getModelResource(EntitySlug object) {
-        return new ResourceLocation(BroglisBugs.MOD_ID, "geo/entity_slug.geo.json");
+    public ResourceLocation getModelResource(EntitySnail object) {
+        return new ResourceLocation(BroglisBugs.MOD_ID, "geo/entity_snail.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(EntitySlug object) {
-        return new ResourceLocation(BroglisBugs.MOD_ID, "textures/entity/slug/entity_slug.png");
+    public ResourceLocation getTextureResource(EntitySnail object) {
+        return new ResourceLocation(BroglisBugs.MOD_ID, "textures/entity/snail/entity_snail.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(EntitySlug animatable) {
-        return new ResourceLocation(BroglisBugs.MOD_ID, "animations/entity_slug.animation.json");
+    public ResourceLocation getAnimationResource(EntitySnail animatable) {
+        return new ResourceLocation(BroglisBugs.MOD_ID, "animations/entity_snail.animation.json");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void setLivingAnimations(EntitySlug entity, Integer uniqueID, AnimationEvent customPredicate) {
+    public void setLivingAnimations(EntitySnail entity, Integer uniqueID, AnimationEvent customPredicate) {
         super.setLivingAnimations(entity, uniqueID, customPredicate);
         IBone head = this.getAnimationProcessor().getBone("Head");
 

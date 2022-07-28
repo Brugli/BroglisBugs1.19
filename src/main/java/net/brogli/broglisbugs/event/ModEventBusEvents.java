@@ -13,5 +13,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(BroglisBugsEntityTypes.ENTITY_SLUG.get(), EntitySlug.setAttributes());
+        event.put(BroglisBugsEntityTypes.ENTITY_SNAIL.get(), EntitySlug.setAttributes());
     }
 }
