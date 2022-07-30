@@ -2,18 +2,16 @@ package net.brogli.broglisbugs;
 
 import com.mojang.logging.LogUtils;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
-import net.brogli.broglisbugs.entity.client.EntitySlugRenderer;
 import net.brogli.broglisbugs.item.BroglisBugsItems;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.level.block.Blocks;
+import net.brogli.broglisbugs.world.biomemods.BroglisBugsBiomeModifiers;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
@@ -34,14 +32,28 @@ public class BroglisBugs {
         BroglisBugsItems.register(eventBus);
         BroglisBugsEntityTypes.register(eventBus);
 
+        BroglisBugsBiomeModifiers.register(eventBus);
+
         eventBus.addListener(this::setup);
 
-        GeckoLib.initialize();
         GeckoLibMod.DISABLE_IN_DEV = true;
+        GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+
+            SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_SLUG.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+
+            SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_SNAIL.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+        });
     }
 }

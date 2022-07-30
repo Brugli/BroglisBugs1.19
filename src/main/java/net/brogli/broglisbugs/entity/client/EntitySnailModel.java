@@ -18,7 +18,7 @@ public class EntitySnailModel extends AnimatedGeoModel<EntitySnail> {
 
     @Override
     public ResourceLocation getTextureResource(EntitySnail object) {
-        return new ResourceLocation(BroglisBugs.MOD_ID, "textures/entity/snail/entity_snail.png");
+        return EntitySnailRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
     }
 
     @Override

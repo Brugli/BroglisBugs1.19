@@ -18,10 +18,10 @@ public class BroglisBugsEntityTypes {
 
     public static final RegistryObject<EntityType<EntitySlug>> ENTITY_SLUG =
             ENTITY_TYPES.register("entity_slug",
-            () -> EntityType.Builder.of(EntitySlug::new, MobCategory.CREATURE)
-                    .clientTrackingRange(9)
-                    .sized(0.75f, 0.5f)
-                    .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_slug").toString()));
+                    () -> EntityType.Builder.of(EntitySlug::new, MobCategory.CREATURE)
+                            .clientTrackingRange(9)
+                            .sized(0.75f, 0.5f)
+                            .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_slug").toString()));
 
     public static final RegistryObject<EntityType<EntitySnail>> ENTITY_SNAIL =
             ENTITY_TYPES.register("entity_snail",
