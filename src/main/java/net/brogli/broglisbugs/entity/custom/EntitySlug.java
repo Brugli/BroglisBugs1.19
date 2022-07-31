@@ -1,9 +1,15 @@
 package net.brogli.broglisbugs.entity.custom;
 
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
+import net.brogli.broglisbugs.entity.variant.SlugVariant;
+import net.brogli.broglisbugs.entity.variant.SnailVariant;
 import net.brogli.broglisbugs.item.BroglisBugsItems;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
@@ -38,6 +44,9 @@ import javax.annotation.Nullable;
 public class EntitySlug extends Animal implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
+    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
+            SynchedEntityData.defineId(EntitySlug.class, EntityDataSerializers.INT);
+
     public EntitySlug(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
@@ -54,8 +63,8 @@ public class EntitySlug extends Animal implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1,new TemptGoal(this, 1.25D, Ingredient.of(Items.RED_MUSHROOM), false));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(2,new TemptGoal(this, 1.25D, Ingredient.of(Items.RED_MUSHROOM), false));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -66,6 +75,8 @@ public class EntitySlug extends Animal implements IAnimatable {
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob mob) {
         EntitySlug baby = BroglisBugsEntityTypes.ENTITY_SLUG.get().create(serverLevel);
+        SlugVariant variant = Util.getRandom(SlugVariant.values(), this.random);
+        baby.setVariant(variant);
         return baby;
     }
 
@@ -127,10 +138,42 @@ public class EntitySlug extends Animal implements IAnimatable {
         }
         super.tick();
     }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("Variant", this.getTypeVariant());
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+    }
+
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance,
                                         MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData,
                                         @Nullable CompoundTag tag) {
-
+        SlugVariant variant = Util.getRandom(SlugVariant.values(), this.random);
+        setVariant(variant);
         return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, tag);
+    }
+
+    public SlugVariant getVariant() {
+        return SlugVariant.byId(this.getTypeVariant() & 255);
+    }
+
+    private int getTypeVariant() {
+        return this.entityData.get(DATA_ID_TYPE_VARIANT);
+    }
+
+    private void setVariant(SlugVariant variant) {
+        this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 }

@@ -17,7 +17,7 @@ public class EntitySlugModel extends AnimatedGeoModel<EntitySlug> {
 
     @Override
     public ResourceLocation getTextureResource(EntitySlug object) {
-        return new ResourceLocation(BroglisBugs.MOD_ID, "textures/entity/slug/entity_slug.png");
+        return EntitySlugRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
     }
 
     @Override
