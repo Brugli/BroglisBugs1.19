@@ -1,6 +1,7 @@
 package net.brogli.broglisbugs.item;
 
 import net.brogli.broglisbugs.BroglisBugs;
+import net.brogli.broglisbugs.item.custom.ItemLadybird;
 import net.brogli.broglisbugs.item.custom.ItemSlug;
 import net.brogli.broglisbugs.item.custom.ItemSnail;
 import net.brogli.broglisbugs.item.tool.ItemBugNet;
@@ -62,6 +63,10 @@ public class BroglisBugsItems {
     // Bottle Of Slime
     public static final RegistryObject<Item> ITEM_SLIME_BOTTLE = ITEMS.register("item_slime_bottle",
             () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)));
+
+    public static final RegistryObject<ItemLadybird> ITEM_LADYBIRD = ITEMS.register("item_ladybird",
+            () -> new ItemLadybird(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().build())));
 
     // Stick Insect
     public static final RegistryObject<Item> ITEM_STICK_INSECT = ITEMS.register("item_stick_insect",

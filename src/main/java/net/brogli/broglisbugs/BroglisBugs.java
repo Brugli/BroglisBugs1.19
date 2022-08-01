@@ -54,6 +54,11 @@ public class BroglisBugs {
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules);
+
+            SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_LADYBIRD.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
         });
     }
 }

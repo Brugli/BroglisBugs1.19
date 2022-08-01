@@ -49,6 +49,18 @@ public class ItemBugNet extends TieredItem {
 
             }
 
+            if (entity.getType() == BroglisBugsEntityTypes.ENTITY_LADYBIRD.get()) {
+                entity.remove(Entity.RemovalReason.DISCARDED);
+                //System.out.println("Ladybird Caught");
+                {
+                    inventory.add(new ItemStack(BroglisBugsItems.ITEM_LADYBIRD.get()));
+                    stack.hurtAndBreak(1, player, (p_43122_) -> {
+                        p_43122_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                    });
+                }
+
+            }
+
         }
         return true;
     }

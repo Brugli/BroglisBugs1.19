@@ -2,6 +2,7 @@ package net.brogli.broglisbugs.event;
 
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
+import net.brogli.broglisbugs.entity.client.EntityLadybirdRenderer;
 import net.brogli.broglisbugs.entity.client.EntitySlugRenderer;
 import net.brogli.broglisbugs.entity.client.EntitySnailRenderer;
 import net.brogli.broglisbugs.entity.custom.EntitySnail;
@@ -19,6 +20,7 @@ public class ModEventClientBusEvents {
 
         EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_SLUG.get(), EntitySlugRenderer::new);
         EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_SNAIL.get(), EntitySnailRenderer::new);
+        EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_LADYBIRD.get(), EntityLadybirdRenderer::new);
 
     }
 }
