@@ -1,0 +1,10 @@
+{
+  "type": "broglisbugs:entities",
+  "biomes": ["plains","sunflower_plains","forest","birch_forest","flower_forest","meadow"],
+  "entity": {
+    "type": "broglisbugs:entity_ladybird",
+    "weight": 20,
+    "minCount": 3,
+    "maxCount": 5
+  }
+}

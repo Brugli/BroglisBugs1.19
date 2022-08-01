@@ -1,10 +1,10 @@
 {
   "type": "broglisbugs:entities",
-  "biomes": "#forge:is_plains",
+  "biomes": ["swamp","mangrove_swamp","forest","birch_forest","flower_forest","dark_forest","old_growth_birch_forest","old_growth_pine_taiga","old_growth_spruce_taiga","taiga","meadow","mushroom_fields","lush_caves"],
   "entity": {
     "type": "broglisbugs:entity_snail",
-    "weight": 40,
-    "minCount": 3,
-    "maxCount": 5
+    "weight": 20,
+    "minCount": 2,
+    "maxCount": 4
   }
 }
