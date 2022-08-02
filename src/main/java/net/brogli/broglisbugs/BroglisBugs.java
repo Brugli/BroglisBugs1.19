@@ -50,6 +50,11 @@ public class BroglisBugs {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules);
 
+            SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_BANANA_SLUG.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+
             SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_SNAIL.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

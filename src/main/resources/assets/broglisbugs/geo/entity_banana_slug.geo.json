@@ -1,0 +1,137 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.entity_slug_model",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Main",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 0, -5.5], "size": [6, 1, 8], "uv": [18, 6]}
+					]
+				},
+				{
+					"name": "main_body",
+					"parent": "Main",
+					"pivot": [0, 1, -5],
+					"cubes": [
+						{"origin": [-2.5, 0.1, -5], "size": [5, 6, 7], "uv": [0, 14]}
+					]
+				},
+				{
+					"name": "Tail",
+					"parent": "Main",
+					"pivot": [0, 0, 2.5],
+					"cubes": [
+						{"origin": [-2.5, 0, 2.5], "size": [5, 1, 6], "uv": [19, 22]}
+					]
+				},
+				{
+					"name": "TailBody",
+					"parent": "Tail",
+					"pivot": [0, 1, 8],
+					"cubes": [
+						{"origin": [-2, 0.1, 0], "size": [4, 5, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Head",
+					"parent": "Main",
+					"pivot": [0, 0, -4],
+					"cubes": [
+						{"origin": [-2, 1, -8], "size": [4, 4, 5], "pivot": [0, 1, -4], "rotation": [5, 0, 0], "uv": [0, 28]},
+						{"origin": [-2.5, 0, -8.5], "size": [5, 1, 4], "uv": [17, 0]}
+					]
+				},
+				{
+					"name": "LeftAntBase",
+					"parent": "Head",
+					"pivot": [2, 3.5, -7]
+				},
+				{
+					"name": "LeftAnt",
+					"parent": "LeftAntBase",
+					"pivot": [2, 4.5, -8.3],
+					"rotation": [-45, 0, 0]
+				},
+				{
+					"name": "LeftAnt2",
+					"parent": "LeftAnt",
+					"pivot": [2, 4.5, -7.7],
+					"rotation": [0, -25, 0],
+					"cubes": [
+						{"origin": [0.1, 3.7, -10.5], "size": [2, 2, 4], "uv": [32, 30]}
+					]
+				},
+				{
+					"name": "LeftFeelBase",
+					"parent": "Head",
+					"pivot": [2, 3, -7]
+				},
+				{
+					"name": "LeftFeel",
+					"parent": "LeftFeelBase",
+					"pivot": [2, 1.8, -8],
+					"rotation": [45, 0, 0]
+				},
+				{
+					"name": "LeftFeel2",
+					"parent": "LeftFeel",
+					"pivot": [2, 1.8, -7.4],
+					"rotation": [0, -25, 0],
+					"cubes": [
+						{"origin": [0.1, 1, -9.2], "size": [2, 2, 3], "uv": [36, 0]}
+					]
+				},
+				{
+					"name": "RightAntBase",
+					"parent": "Head",
+					"pivot": [-2, 3.5, -7]
+				},
+				{
+					"name": "RightAnt",
+					"parent": "RightAntBase",
+					"pivot": [-2, 4.5, -8.3],
+					"rotation": [-45, 0, 0]
+				},
+				{
+					"name": "RightAnt2",
+					"parent": "RightAnt",
+					"pivot": [-2, 4.5, -7.7],
+					"rotation": [0, 25, 0],
+					"cubes": [
+						{"origin": [-2.1, 3.7, -10.5], "size": [2, 2, 4], "uv": [19, 30]}
+					]
+				},
+				{
+					"name": "RightFeelBase",
+					"parent": "Head",
+					"pivot": [2, 3, -7]
+				},
+				{
+					"name": "RightFeel",
+					"parent": "RightFeelBase",
+					"pivot": [-2, 1.8, -8],
+					"rotation": [45, 0, 0]
+				},
+				{
+					"name": "RightFeel2",
+					"parent": "RightFeel",
+					"pivot": [-2, 1.8, -7.4],
+					"rotation": [0, 25, 0],
+					"cubes": [
+						{"origin": [-2.1, 1, -9.2], "size": [2, 2, 3], "uv": [25, 16]}
+					]
+				}
+			]
+		}
+	]
+}

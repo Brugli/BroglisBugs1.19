@@ -271,6 +271,138 @@
 					}
 				}
 			}
+		},
+		"animation.entityladybird.flying": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"LeftElytra": {
+					"rotation": {
+						"vector": [60, 80, 0]
+					}
+				},
+				"RightElytra": {
+					"rotation": {
+						"vector": [60, -80, 0]
+					}
+				},
+				"LeftWing": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 45, 0]
+						},
+						"0.0833": {
+							"vector": [25, 45, 0]
+						},
+						"0.1667": {
+							"vector": [0, 45, 0]
+						},
+						"0.25": {
+							"vector": [25, 45, 0]
+						},
+						"0.3333": {
+							"vector": [0, 45, 0]
+						},
+						"0.4167": {
+							"vector": [25, 45, 0]
+						},
+						"0.5": {
+							"vector": [0, 45, 0]
+						},
+						"0.5833": {
+							"vector": [25, 45, 0]
+						},
+						"0.6667": {
+							"vector": [0, 45, 0]
+						},
+						"0.75": {
+							"vector": [25, 45, 0]
+						},
+						"0.8333": {
+							"vector": [0, 45, 0]
+						},
+						"0.9167": {
+							"vector": [25, 45, 0]
+						},
+						"1.0": {
+							"vector": [0, 45, 0]
+						}
+					}
+				},
+				"RightWing": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, -45, 0]
+						},
+						"0.0833": {
+							"vector": [25, -45, 0]
+						},
+						"0.1667": {
+							"vector": [0, -45, 0]
+						},
+						"0.25": {
+							"vector": [25, -45, 0]
+						},
+						"0.3333": {
+							"vector": [0, -45, 0]
+						},
+						"0.4167": {
+							"vector": [25, -45, 0]
+						},
+						"0.5": {
+							"vector": [0, -45, 0]
+						},
+						"0.5833": {
+							"vector": [25, -45, 0]
+						},
+						"0.6667": {
+							"vector": [0, -45, 0]
+						},
+						"0.75": {
+							"vector": [25, -45, 0]
+						},
+						"0.8333": {
+							"vector": [0, -45, 0]
+						},
+						"0.9167": {
+							"vector": [25, -45, 0]
+						},
+						"1.0": {
+							"vector": [0, -45, 0]
+						}
+					}
+				},
+				"FLLEG": {
+					"rotation": {
+						"vector": [15, 0, 30]
+					}
+				},
+				"MLLEG": {
+					"rotation": {
+						"vector": [0, 0, 30]
+					}
+				},
+				"BLLEG": {
+					"rotation": {
+						"vector": [-15, 0, 30]
+					}
+				},
+				"FRLEG": {
+					"rotation": {
+						"vector": [15, 0, -30]
+					}
+				},
+				"BRLEG": {
+					"rotation": {
+						"vector": [-15, 0, -30]
+					}
+				},
+				"MRLEG": {
+					"rotation": {
+						"vector": [0, 0, -30]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

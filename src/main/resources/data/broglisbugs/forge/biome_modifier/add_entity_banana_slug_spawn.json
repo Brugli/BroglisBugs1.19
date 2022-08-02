@@ -1,0 +1,10 @@
+{
+  "type": "broglisbugs:entities",
+  "biomes": ["jungle","sparse_jungle","bamboo_jungle"],
+  "entity": {
+    "type": "broglisbugs:entity_banana_slug",
+    "weight": 20,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}

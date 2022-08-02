@@ -1,6 +1,7 @@
 package net.brogli.broglisbugs.item;
 
 import net.brogli.broglisbugs.BroglisBugs;
+import net.brogli.broglisbugs.item.custom.ItemBananaSlug;
 import net.brogli.broglisbugs.item.custom.ItemLadybird;
 import net.brogli.broglisbugs.item.custom.ItemSlug;
 import net.brogli.broglisbugs.item.custom.ItemSnail;
@@ -29,8 +30,8 @@ public class BroglisBugsItems {
                             .alwaysEat().build())));
 
     //Banana Slug
-    public static final RegistryObject<Item> ITEM_BANANA_SLUG = ITEMS.register("item_banana_slug",
-            () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+    public static final RegistryObject<ItemBananaSlug> ITEM_BANANA_SLUG = ITEMS.register("item_banana_slug",
+            () -> new ItemBananaSlug(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(0)
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 300, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 400, 4, false, true), 1)

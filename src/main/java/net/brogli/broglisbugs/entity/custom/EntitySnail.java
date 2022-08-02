@@ -108,6 +108,10 @@ public class EntitySnail extends Animal implements IAnimatable {
         this.playSound(SoundEvents.SLIME_SQUISH, 0.1F, 1.0F);
     }
 
+    public boolean isPushable() {
+        return false;
+    }
+
     //Interaction
     public int cooldown = 0;
     @Override

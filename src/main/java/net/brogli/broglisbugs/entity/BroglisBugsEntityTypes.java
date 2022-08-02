@@ -1,6 +1,7 @@
 package net.brogli.broglisbugs.entity;
 
 import net.brogli.broglisbugs.BroglisBugs;
+import net.brogli.broglisbugs.entity.custom.EntityBananaSlug;
 import net.brogli.broglisbugs.entity.custom.EntityLadybird;
 import net.brogli.broglisbugs.entity.custom.EntitySlug;
 import net.brogli.broglisbugs.entity.custom.EntitySnail;
@@ -23,6 +24,13 @@ public class BroglisBugsEntityTypes {
                             .clientTrackingRange(9)
                             .sized(0.75f, 0.5f)
                             .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_slug").toString()));
+
+    public static final RegistryObject<EntityType<EntityBananaSlug>> ENTITY_BANANA_SLUG =
+            ENTITY_TYPES.register("entity_banana_slug",
+                    () -> EntityType.Builder.of(EntityBananaSlug::new, MobCategory.CREATURE)
+                            .clientTrackingRange(9)
+                            .sized(0.75f, 0.5f)
+                            .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_banana_slug").toString()));
 
     public static final RegistryObject<EntityType<EntitySnail>> ENTITY_SNAIL =
             ENTITY_TYPES.register("entity_snail",
