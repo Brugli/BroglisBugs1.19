@@ -374,32 +374,32 @@
 				},
 				"FLLEG": {
 					"rotation": {
-						"vector": [15, 0, 30]
+						"vector": ["math.sin(query.anim_time*350)*2", 0, "math.sin(query.anim_time*350)-4*-3"]
 					}
 				},
 				"MLLEG": {
 					"rotation": {
-						"vector": [0, 0, 30]
+						"vector": ["math.sin(query.anim_time*350)*-2", 0, "math.sin(query.anim_time*350)-4*-3"]
 					}
 				},
 				"BLLEG": {
 					"rotation": {
-						"vector": [-15, 0, 30]
+						"vector": ["math.sin(query.anim_time*350)*2", 0, "math.sin(query.anim_time*350)-4*-3"]
 					}
 				},
 				"FRLEG": {
 					"rotation": {
-						"vector": [15, 0, -30]
+						"vector": ["math.cos(query.anim_time*350)*2", 0, "math.cos(query.anim_time*350)-4*3"]
 					}
 				},
 				"BRLEG": {
 					"rotation": {
-						"vector": [-15, 0, -30]
+						"vector": ["math.cos(query.anim_time*350)*2", 0, "math.cos(query.anim_time*350)-4*3"]
 					}
 				},
 				"MRLEG": {
 					"rotation": {
-						"vector": [0, 0, -30]
+						"vector": ["math.cos(query.anim_time*350)*-2", 0, "math.cos(query.anim_time*350)-4*2"]
 					}
 				}
 			}
