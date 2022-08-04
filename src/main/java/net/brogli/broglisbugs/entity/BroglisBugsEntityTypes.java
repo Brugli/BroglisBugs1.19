@@ -16,7 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BroglisBugsEntityTypes {
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
-            DeferredRegister.create(ForgeRegistries.ENTITIES, BroglisBugs.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BroglisBugs.MOD_ID);
 
     public static final RegistryObject<EntityType<EntitySlug>> ENTITY_SLUG =
             ENTITY_TYPES.register("entity_slug",

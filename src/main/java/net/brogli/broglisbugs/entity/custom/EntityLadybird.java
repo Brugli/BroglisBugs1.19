@@ -68,7 +68,7 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
     public static AttributeSupplier setAttributes() {
         return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 3.0D)
-                .add(Attributes.FLYING_SPEED, (double)0.5F)
+                .add(Attributes.FLYING_SPEED, (double)0.3F)
                 .add(Attributes.MOVEMENT_SPEED, 0.25F)
                 .add(Attributes.FOLLOW_RANGE, 32.0D).build();
     }
@@ -79,6 +79,7 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(2, new TemptGoal(this, 1.25D, Ingredient.of(Items.BEETROOT), false));
+        this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new EntityLadybird.LadybirdWanderGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
