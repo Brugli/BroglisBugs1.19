@@ -157,6 +157,10 @@ public class EntitySlug extends Animal implements IAnimatable {
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
     }
 
+    public boolean canBeLeashed(Player player) {
+        return false;
+    }
+
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance,
                                         MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData,
                                         @Nullable CompoundTag tag) {

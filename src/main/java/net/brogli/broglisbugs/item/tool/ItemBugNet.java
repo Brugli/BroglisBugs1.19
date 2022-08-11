@@ -73,6 +73,18 @@ public class ItemBugNet extends TieredItem {
 
             }
 
+            if (entity.getType() == BroglisBugsEntityTypes.ENTITY_STICK_INSECT.get()) {
+                entity.remove(Entity.RemovalReason.DISCARDED);
+                //System.out.println("Stick Insect Caught");
+                {
+                    inventory.add(new ItemStack(BroglisBugsItems.ITEM_STICK_INSECT.get()));
+                    stack.hurtAndBreak(1, player, (p_43122_) -> {
+                        p_43122_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                    });
+                }
+
+            }
+
         }
         return true;
     }

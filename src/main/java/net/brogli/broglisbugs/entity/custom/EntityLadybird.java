@@ -78,12 +78,12 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.25D, Ingredient.of(Items.BEETROOT), false));
-        this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new EntityLadybird.LadybirdWanderGoal(this, 1.0D));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.25D, Ingredient.of(Items.SWEET_BERRIES), false));
+        this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(6, new EntityLadybird.LadybirdWanderGoal(this, 1.0D));
     }
 
     protected PathNavigation createNavigation(Level p_29417_) {
@@ -195,7 +195,7 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.getItem() == Items.BEETROOT;
+        return pStack.getItem() == Items.SWEET_BERRIES;
     }
 
     //Animation
@@ -252,6 +252,10 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+    }
+
+    public boolean canBeLeashed(Player player) {
+        return false;
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance,

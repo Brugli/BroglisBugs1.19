@@ -1,10 +1,7 @@
 package net.brogli.broglisbugs.entity;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.entity.custom.EntityBananaSlug;
-import net.brogli.broglisbugs.entity.custom.EntityLadybird;
-import net.brogli.broglisbugs.entity.custom.EntitySlug;
-import net.brogli.broglisbugs.entity.custom.EntitySnail;
+import net.brogli.broglisbugs.entity.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -45,6 +42,13 @@ public class BroglisBugsEntityTypes {
                             .clientTrackingRange(9)
                             .sized(0.75f, 0.5f)
                             .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_ladybird").toString()));
+
+    public static final RegistryObject<EntityType<EntityStickInsect>> ENTITY_STICK_INSECT =
+            ENTITY_TYPES.register("entity_stick_insect",
+                    () -> EntityType.Builder.of(EntityStickInsect::new, MobCategory.CREATURE)
+                            .clientTrackingRange(9)
+                            .sized(0.75f, 0.5f)
+                            .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_stick_insect").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

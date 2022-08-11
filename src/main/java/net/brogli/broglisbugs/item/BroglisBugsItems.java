@@ -1,10 +1,7 @@
 package net.brogli.broglisbugs.item;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.item.custom.ItemBananaSlug;
-import net.brogli.broglisbugs.item.custom.ItemLadybird;
-import net.brogli.broglisbugs.item.custom.ItemSlug;
-import net.brogli.broglisbugs.item.custom.ItemSnail;
+import net.brogli.broglisbugs.item.custom.*;
 import net.brogli.broglisbugs.item.tool.ItemBugNet;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -70,8 +67,8 @@ public class BroglisBugsItems {
                     .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().build())));
 
     // Stick Insect
-    public static final RegistryObject<Item> ITEM_STICK_INSECT = ITEMS.register("item_stick_insect",
-            () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+    public static final RegistryObject<ItemStickInsect> ITEM_STICK_INSECT = ITEMS.register("item_stick_insect",
+            () -> new ItemStickInsect(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
                     .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().build())));
 
     // Grasshopper
