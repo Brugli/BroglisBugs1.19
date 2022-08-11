@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:smoking" ,
+	"ingredient": { "item": "broglisbugs:item_stick_insect" },
+	"result": { "item": "broglisbugs:item_fried_stick_insect" },
+	"experience": 0,
+	"cookingtime": 200
+}	
