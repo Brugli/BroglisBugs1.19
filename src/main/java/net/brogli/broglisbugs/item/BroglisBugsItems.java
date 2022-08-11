@@ -24,6 +24,7 @@ public class BroglisBugsItems {
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 300, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 400, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 3, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 4, false, true), 1)
                             .alwaysEat().build())));
 
     //Banana Slug
@@ -33,6 +34,7 @@ public class BroglisBugsItems {
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 300, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 400, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 3, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 4, false, true), 1)
                             .alwaysEat().build())));
 
     // Crispy Slug
@@ -51,6 +53,7 @@ public class BroglisBugsItems {
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 300, 4, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 300, 1, false, true), 1)
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 4, false, true), 1)
                             .alwaysEat().build())));
 
     // Cooked Snail
@@ -64,25 +67,37 @@ public class BroglisBugsItems {
 
     public static final RegistryObject<ItemLadybird> ITEM_LADYBIRD = ITEMS.register("item_ladybird",
             () -> new ItemLadybird(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
-                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().build())));
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0f)
+                            .effect(() -> new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 2, false, true), 1)
+                            .alwaysEat().build())));
 
     // Stick Insect
     public static final RegistryObject<ItemStickInsect> ITEM_STICK_INSECT = ITEMS.register("item_stick_insect",
             () -> new ItemStickInsect(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
-                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().build())));
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0f)
+                            .effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 100, 2, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2, false, true), 1)
+                            .alwaysEat().build())));
+
+    public static final RegistryObject<Item> ITEM_FRIED_STICK_INSECT = ITEMS.register("item_fried_stick_insect",
+            () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.5f)
+                            .effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 200, 2, false, true), 1)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 2, false, true), 1)
+                            .alwaysEat().build())));
 
     // Grasshopper
     public static final RegistryObject<Item> ITEM_GRASSHOPPER = ITEMS.register("item_grasshopper",
             () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
-                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0)
-                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 150, 2, false, true), 1)
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0)
+                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 150, 1, false, true), 1)
                             .alwaysEat().build())));
 
     // Cooked Grasshopper
     public static final RegistryObject<Item> ITEM_COOKED_GRASSHOPPER = ITEMS.register("item_cooked_grasshopper",
             () -> new Item(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
-                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0)
-                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 300, 4, false, true), 1)
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.5f)
+                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 300, 3, false, true), 1)
                             .alwaysEat().build())));
 
     // Tools
