@@ -200,20 +200,20 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
 
     //Animation
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entityladybird.walk", true));
+        if (event.isMoving() && this.isOnGround()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entity_ladybird.walking", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entityladybird.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entity_ladybird.idle", true));
         return PlayState.CONTINUE;
     }
 
     private <E extends IAnimatable> PlayState flightpredicate(AnimationEvent<E> event) {
-        if (this.isFlying()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entityladybird.flying", true));
+        if (this.isFlying() && !this.isOnGround()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entity_ladybird.flying", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entityladybird.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entity_ladybird.idle", true));
         return PlayState.CONTINUE;
     }
 
