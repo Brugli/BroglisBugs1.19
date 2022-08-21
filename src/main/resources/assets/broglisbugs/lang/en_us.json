@@ -13,8 +13,13 @@
   "item.broglisbugs.item_grasshopper": "Grasshopper",
   "item.broglisbugs.item_cooked_grasshopper": "Cooked Grasshopper",
   "item.broglisbugs.item_ladybird": "Ladybird",
+  "item.broglisbugs.item_ant": "Ant",
 
   //Blocks
+  "block.broglisbugs.block_salt": "Salt",
+
+  //Villagers
+  "entity.broglisbugs.bug_collector": "Bug Collector",
 
   //Creative Tabs
   "itemGroup.broglisbugstab": "Broglis Bugs",

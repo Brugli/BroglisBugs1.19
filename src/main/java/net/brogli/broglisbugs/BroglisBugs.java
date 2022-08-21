@@ -1,15 +1,19 @@
 package net.brogli.broglisbugs;
 
 import com.mojang.logging.LogUtils;
+import net.brogli.broglisbugs.block.BroglisBugsBlocks;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.item.BroglisBugsItems;
 import net.brogli.broglisbugs.world.biomemods.BroglisBugsBiomeModifiers;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -30,13 +34,16 @@ public class BroglisBugs {
 
 
         BroglisBugsItems.register(eventBus);
+        BroglisBugsBlocks.register(eventBus);
         BroglisBugsEntityTypes.register(eventBus);
 
         BroglisBugsBiomeModifiers.register(eventBus);
 
         eventBus.addListener(this::setup);
 
-        GeckoLibMod.DISABLE_IN_DEV = true;
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -70,5 +77,10 @@ public class BroglisBugs {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules);
         });
+    }
+
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        event.enqueueWork(() ->
+                ItemBlockRenderTypes.setRenderLayer(BroglisBugsBlocks.BLOCK_SALT.get(), RenderType.cutout()));
     }
 }
