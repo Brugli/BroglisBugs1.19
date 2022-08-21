@@ -20,6 +20,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
@@ -28,7 +29,11 @@ import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -41,10 +46,13 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import javax.annotation.Nullable;
 
 public class EntityBananaSlug extends Animal implements IAnimatable {
+
+    int moreCropTicks;
     private AnimationFactory factory = new AnimationFactory(this);
 
     public EntityBananaSlug(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
+        this.moveControl = new EntityBananaSlug.EntityBananaSlugMoveControl(this);
     }
 
     //Attributes
@@ -64,6 +72,7 @@ public class EntityBananaSlug extends Animal implements IAnimatable {
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(6, new EntityBananaSlug.RaidGardenGoal(this));
 
     }
 
@@ -133,6 +142,23 @@ public class EntityBananaSlug extends Animal implements IAnimatable {
         super.tick();
     }
 
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.moreCropTicks = tag.getInt("MoreCropTicks");
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("MoreCropTicks", this.moreCropTicks);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+    }
+
     public boolean canBeLeashed(Player player) {
         return false;
     }
@@ -141,5 +167,96 @@ public class EntityBananaSlug extends Animal implements IAnimatable {
                                         MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData,
                                         @Nullable CompoundTag tag) {
         return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, tag);
+    }
+
+    public void customServerAiStep() {
+
+        if (this.moreCropTicks > 0) {
+            this.moreCropTicks -= this.random.nextInt(3);
+            if (this.moreCropTicks < 0) {
+                this.moreCropTicks = 0;
+            }
+        }
+    }
+
+    boolean wantsMoreFood() {
+        return this.moreCropTicks == 0;
+    }
+
+    static class EntityBananaSlugMoveControl extends MoveControl {
+        private final EntityBananaSlug entityBananaSlug;
+
+        public EntityBananaSlugMoveControl(EntityBananaSlug entityBananaSlug) {
+            super(entityBananaSlug);
+            this.entityBananaSlug = entityBananaSlug;
+        }
+
+        public void setWantedPosition(double p_29769_, double p_29770_, double p_29771_, double p_29772_) {
+            super.setWantedPosition(p_29769_, p_29770_, p_29771_, p_29772_);
+        }
+    }
+
+    static class RaidGardenGoal extends MoveToBlockGoal {
+        private final EntityBananaSlug entityBananaSlug;
+        private boolean wantsToRaid;
+        private boolean canRaid;
+
+        public RaidGardenGoal(EntityBananaSlug entityBananaSlug) {
+            super(entityBananaSlug, (double)0.7F, 16);
+            this.entityBananaSlug = entityBananaSlug;
+        }
+
+        public boolean canUse() {
+            if (this.nextStartTick <= 0) {
+                if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.entityBananaSlug.level, this.entityBananaSlug)) {
+                    return false;
+                }
+
+                this.canRaid = false;
+                this.wantsToRaid = this.entityBananaSlug.wantsMoreFood();
+                this.wantsToRaid = true;
+            }
+
+            return super.canUse();
+        }
+
+        public boolean canContinueToUse() {
+            return this.canRaid && super.canContinueToUse();
+        }
+
+        public void tick() {
+            super.tick();
+            this.entityBananaSlug.getLookControl().setLookAt((double)this.blockPos.getX() + 0.5D, (double)(this.blockPos.getY() + 1), (double)this.blockPos.getZ() + 0.5D, 10.0F, (float)this.entityBananaSlug.getMaxHeadXRot());
+            if (this.isReachedTarget()) {
+                Level level = this.entityBananaSlug.level;
+                BlockPos blockpos = this.blockPos.above();
+                BlockState blockstate = level.getBlockState(blockpos);
+                Block block = blockstate.getBlock();
+                if (this.canRaid && block instanceof CropBlock) {
+                    level.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 2);
+                    level.destroyBlock(blockpos, true, this.entityBananaSlug);
+                    this.entityBananaSlug.moreCropTicks = 40;
+                    this.entityBananaSlug.playSound(SoundEvents.CROP_BREAK, 1.0F, 1.0F);
+                    System.out.println("Crops Eaten");
+                }
+
+                this.canRaid = false;
+                this.nextStartTick = 10;
+            }
+
+        }
+
+        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+            BlockState blockstate = level.getBlockState(pos);
+            if (blockstate.is(Blocks.FARMLAND) && this.wantsToRaid && !this.canRaid) {
+                blockstate = level.getBlockState(pos.above());
+                if (blockstate.getBlock() instanceof CropBlock && ((CropBlock)blockstate.getBlock()).isMaxAge(blockstate)) {
+                    this.canRaid = true;
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

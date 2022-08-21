@@ -1,0 +1,6 @@
+{
+    "parent": "broglisbugs:block/block_salt_side_alt",
+    "textures": {
+        "line": "broglisbugs:block/block_salt_line1"
+    }
+}

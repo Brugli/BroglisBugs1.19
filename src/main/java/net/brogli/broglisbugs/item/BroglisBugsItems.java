@@ -100,6 +100,10 @@ public class BroglisBugsItems {
                             .effect(() -> new MobEffectInstance(MobEffects.JUMP, 300, 3, false, true), 1)
                             .alwaysEat().build())));
 
+    public static final RegistryObject<ItemAnt> ITEM_ANT = ITEMS.register("item_ant",
+            () -> new ItemAnt(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0).alwaysEat().build())));
+
     // Tools
 
     // Bug Net
