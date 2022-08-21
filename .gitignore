@@ -5,9 +5,6 @@ bin
 .metadata
 .classpath
 .project
-.vscode
-
-gradlew
 
 # idea
 out
