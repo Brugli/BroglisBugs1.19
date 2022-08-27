@@ -1,0 +1,56 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.entity_worm_model",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Part3",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.51, -0.01, -1.5], "size": [3.02, 3.02, 3], "uv": [10, 11]}
+					]
+				},
+				{
+					"name": "Part4",
+					"parent": "Part3",
+					"pivot": [0, 0, 1.5],
+					"cubes": [
+						{"origin": [-1.505, -0.005, 1.5], "size": [3.01, 3.01, 3], "uv": [0, 7]}
+					]
+				},
+				{
+					"name": "Part5",
+					"parent": "Part4",
+					"pivot": [0, 0, 4.5],
+					"cubes": [
+						{"origin": [-1.5, 0, 4.5], "size": [3, 3, 3], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Part2",
+					"parent": "Part3",
+					"pivot": [0, 0, -1.5],
+					"cubes": [
+						{"origin": [-1.505, -0.005, -4.5], "size": [3.01, 3.01, 3], "uv": [13, 0]}
+					]
+				},
+				{
+					"name": "Main",
+					"parent": "Part2",
+					"pivot": [0, 0, -4.5],
+					"cubes": [
+						{"origin": [-1.5, 0, -7.5], "size": [3, 3, 3], "uv": [0, 15]}
+					]
+				}
+			]
+		}
+	]
+}
