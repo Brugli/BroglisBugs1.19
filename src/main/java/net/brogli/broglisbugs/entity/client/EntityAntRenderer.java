@@ -38,6 +38,6 @@ public class EntityAntRenderer extends GeoEntityRenderer<EntityAnt> {
 
     @Override
     protected float getDeathMaxRotation(EntityAnt entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }

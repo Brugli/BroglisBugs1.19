@@ -1,14 +1,16 @@
 package net.brogli.broglisbugs.event;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.block.custom.BlockSalt;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,9 +20,9 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid = BroglisBugs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModForgeEvents {
 
-
     @SubscribeEvent
     public static void HarvestDropsEvent(final BlockEvent.BreakEvent event ) {
+
         Random random = new Random();
         float RandF = random.nextFloat();
         if (RandF >= 0.0F && RandF <= 0.05F) {
@@ -33,11 +35,12 @@ public class ModForgeEvents {
             }
         }
     }
-
-
-
-
-
-
-
+    @SubscribeEvent
+    public static void levelTickEvent(final TickEvent.LevelTickEvent event) {
+        Random random = new Random();
+        float RandF = random.nextFloat();
+        if (event.level.getDayTime() % 23999 == 0) {
+            System.out.println("A New Day Begins");
+        }
+    }
 }

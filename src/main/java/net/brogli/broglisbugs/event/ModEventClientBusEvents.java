@@ -23,6 +23,7 @@ public class ModEventClientBusEvents {
         EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_LADYBIRD.get(), EntityLadybirdRenderer::new);
         EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_STICK_INSECT.get(), EntityStickInsectRenderer::new);
         EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_ANT.get(), EntityAntRenderer::new);
+        EntityRenderers.register(BroglisBugsEntityTypes.ENTITY_HERCULES_BEETLE.get(), EntityHerculesBeetleRenderer::new);
         EntityRenderers.register(BroglisBugsEntityTypes.BUG_COLLECTOR.get(), BugCollectorRenderer::new);
 
     }

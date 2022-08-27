@@ -19,6 +19,7 @@ public class ModEventBusEvents {
         event.put(BroglisBugsEntityTypes.ENTITY_LADYBIRD.get(), EntityLadybird.setAttributes());
         event.put(BroglisBugsEntityTypes.ENTITY_STICK_INSECT.get(), EntityStickInsect.setAttributes());
         event.put(BroglisBugsEntityTypes.ENTITY_ANT.get(), EntityAnt.setAttributes());
+        event.put(BroglisBugsEntityTypes.ENTITY_HERCULES_BEETLE.get(), EntityHerculesBeetle.setAttributes());
         event.put(BroglisBugsEntityTypes.BUG_COLLECTOR.get(), BugCollector.setAttributes());
     }
 }

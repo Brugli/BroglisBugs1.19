@@ -97,6 +97,18 @@ public class ItemBugNet extends TieredItem {
 
             }
 
+            if (entity.getType() == BroglisBugsEntityTypes.ENTITY_HERCULES_BEETLE.get()) {
+                entity.remove(Entity.RemovalReason.DISCARDED);
+                //System.out.println("Hercules Beetle Caught");
+                {
+                    inventory.add(new ItemStack(BroglisBugsItems.ITEM_HERCULES_BEETLE.get()));
+                    stack.hurtAndBreak(1, player, (p_43122_) -> {
+                        p_43122_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                    });
+                }
+
+            }
+
         }
         return true;
     }

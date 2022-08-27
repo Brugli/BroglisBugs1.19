@@ -1,9 +1,0 @@
-{
-	"replace": false,
-	"values":
-	[
-		"broglisbugs:entity_slug",
-		"broglisbugs:entity_banana_slug",
-		"broglisbugs:entity_snail"
-	]
-}

@@ -50,6 +50,6 @@ public class EntitySlugRenderer extends GeoEntityRenderer<EntitySlug> {
 
     @Override
     protected float getDeathMaxRotation(EntitySlug entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }
