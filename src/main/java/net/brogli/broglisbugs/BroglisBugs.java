@@ -1,6 +1,9 @@
 package net.brogli.broglisbugs;
 
+import org.slf4j.Logger;
+
 import com.mojang.logging.LogUtils;
+
 import net.brogli.broglisbugs.block.BroglisBugsBlocks;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.item.BroglisBugsItems;
@@ -20,7 +23,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 

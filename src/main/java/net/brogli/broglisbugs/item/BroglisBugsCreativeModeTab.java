@@ -1,8 +1,6 @@
 package net.brogli.broglisbugs.item;
 
-import net.brogli.broglisbugs.BroglisBugs;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class BroglisBugsCreativeModeTab {

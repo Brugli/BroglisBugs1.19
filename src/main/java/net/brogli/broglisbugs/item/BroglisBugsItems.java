@@ -1,12 +1,17 @@
 package net.brogli.broglisbugs.item;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.item.custom.*;
+import net.brogli.broglisbugs.item.custom.ItemAnt;
+import net.brogli.broglisbugs.item.custom.ItemBananaSlug;
+import net.brogli.broglisbugs.item.custom.ItemHerculesBeetle;
+import net.brogli.broglisbugs.item.custom.ItemLadybird;
+import net.brogli.broglisbugs.item.custom.ItemSlug;
+import net.brogli.broglisbugs.item.custom.ItemSnail;
+import net.brogli.broglisbugs.item.custom.ItemStickInsect;
 import net.brogli.broglisbugs.item.tool.ItemBugNet;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

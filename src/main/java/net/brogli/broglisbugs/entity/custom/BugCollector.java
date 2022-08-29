@@ -1,6 +1,9 @@
 package net.brogli.broglisbugs.entity.custom;
 
+import java.util.Set;
+
 import com.google.common.collect.Sets;
+
 import net.brogli.broglisbugs.villager.BroglisBugsVillagerTrades;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -20,8 +23,6 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
-
-import java.util.Set;
 
 public class BugCollector extends WanderingTrader implements IAnimatable {
 
