@@ -6,23 +6,19 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "broglisbugs:item_crispy_slug"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "broglisbugs:entity_slug",
-            "location": {
-              "block": {
-                "blocks": [
-                  "minecraft:basalt"
-                ]
+          "name": "broglisbugs:item_crispy_slug",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type": "broglisbugs:entity_slug",
+                "flags": {
+                  "is_on_fire": true
+                }
               }
             }
-          }
+          ]
         }
       ]
     }

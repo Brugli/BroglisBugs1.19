@@ -51,6 +51,6 @@ public class EntitySnailRenderer extends GeoEntityRenderer<EntitySnail> {
 
     @Override
     protected float getDeathMaxRotation(EntitySnail entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }

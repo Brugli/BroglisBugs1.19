@@ -38,6 +38,6 @@ public class EntityBananaSlugRenderer extends GeoEntityRenderer<EntityBananaSlug
 
     @Override
     protected float getDeathMaxRotation(EntityBananaSlug entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }

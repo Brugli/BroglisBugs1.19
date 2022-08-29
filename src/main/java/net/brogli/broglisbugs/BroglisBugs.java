@@ -10,12 +10,16 @@ import net.brogli.broglisbugs.item.BroglisBugsItems;
 import net.brogli.broglisbugs.world.biomemods.BroglisBugsBiomeModifiers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -32,6 +36,7 @@ public class BroglisBugs {
     //BroglisBugs
     public BroglisBugs()
     {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.commonSpec);
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 
@@ -43,9 +48,10 @@ public class BroglisBugs {
 
         eventBus.addListener(this::setup);
 
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        GeckoLibMod.DISABLE_IN_DEV = false;
+        GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -75,6 +81,11 @@ public class BroglisBugs {
                     Animal::checkAnimalSpawnRules);
 
             SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_STICK_INSECT.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules);
+
+            SpawnPlacements.register(BroglisBugsEntityTypes.ENTITY_HERCULES_BEETLE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules);

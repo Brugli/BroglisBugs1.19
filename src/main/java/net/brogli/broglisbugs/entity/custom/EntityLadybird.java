@@ -267,7 +267,7 @@ public class EntityLadybird extends Animal implements IAnimatable, FlyingAnimal 
     }
 
     public boolean canBeLeashed(Player player) {
-        return false;
+        return true;
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance,

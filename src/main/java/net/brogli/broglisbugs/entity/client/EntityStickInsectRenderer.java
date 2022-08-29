@@ -45,6 +45,6 @@ public class EntityStickInsectRenderer extends GeoEntityRenderer<EntityStickInse
 
     @Override
     protected float getDeathMaxRotation(EntityStickInsect entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }

@@ -55,6 +55,6 @@ public class EntityLadybirdRenderer extends GeoEntityRenderer<EntityLadybird> {
 
     @Override
     protected float getDeathMaxRotation(EntityLadybird entityLivingBaseIn) {
-        return 0.0F;
+        return 90.0F;
     }
 }

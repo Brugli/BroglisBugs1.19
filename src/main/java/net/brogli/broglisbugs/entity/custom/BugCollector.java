@@ -5,6 +5,9 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 
 import net.brogli.broglisbugs.villager.BroglisBugsVillagerTrades;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -24,6 +27,8 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class BugCollector extends WanderingTrader implements IAnimatable {
 
     AnimationFactory factory = new AnimationFactory(this);
+
+    private int despawnDelay;
 
     public BugCollector(EntityType<? extends BugCollector> entityType, Level level) {
         super(entityType, level );
@@ -59,6 +64,7 @@ public class BugCollector extends WanderingTrader implements IAnimatable {
 
     }
 
+
     protected void updateTrades() {
         BroglisBugsVillagerTrades.ItemListing[] abroglisbugsvillagertrades$itemlisting = BroglisBugsVillagerTrades.BUG_COLLECTOR_TRADES.get(1);
         BroglisBugsVillagerTrades.ItemListing[] abroglisbugsvillagertrades$itemlisting1 = BroglisBugsVillagerTrades.BUG_COLLECTOR_TRADES.get(2);
@@ -72,9 +78,44 @@ public class BugCollector extends WanderingTrader implements IAnimatable {
         }
     }
 
+    public void addAdditionalSaveData(CompoundTag p_35861_) {
+        super.addAdditionalSaveData(p_35861_);
+        p_35861_.putInt("DespawnDelay", this.despawnDelay);
+    }
+
+    public void readAdditionalSaveData(CompoundTag p_35852_) {
+        super.readAdditionalSaveData(p_35852_);
+        if (p_35852_.contains("DespawnDelay", 99)) {
+            this.despawnDelay = p_35852_.getInt("DespawnDelay");
+        }
+        this.setAge(Math.max(0, this.getAge()));
+    }
+
+    public void setDespawnDelay(int p_35892_) {
+        this.despawnDelay = p_35892_;
+    }
+
+    public int getDespawnDelay() {
+        return this.despawnDelay;
+    }
+
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level.isClientSide) {
+            this.maybeDespawn();
+        }
+    }
+
+    private void maybeDespawn() {
+        if (this.despawnDelay > 0 && !this.isTrading() && --this.despawnDelay == 0) {
+            this.discard();
+        }
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bug_collector.walking", true));
+            System.out.println("bug collector walking");
             return PlayState.CONTINUE;
         }
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bug_collector.idle", true));

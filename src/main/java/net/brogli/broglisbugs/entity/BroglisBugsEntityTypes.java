@@ -57,10 +57,25 @@ public class BroglisBugsEntityTypes {
                             .sized(0.75f, 0.5f)
                             .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_ant").toString()));
 
+    public static final RegistryObject<EntityType<EntityHerculesBeetle>> ENTITY_HERCULES_BEETLE =
+            ENTITY_TYPES.register("entity_hercules_beetle",
+                    () -> EntityType.Builder.of(EntityHerculesBeetle::new, MobCategory.CREATURE)
+                            .clientTrackingRange(9)
+                            .sized(0.75f, 0.5f)
+                            .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_hercules_beetle").toString()));
+
     public static final RegistryObject<EntityType<BugCollector>> BUG_COLLECTOR =
             ENTITY_TYPES.register("bug_collector",
-                () -> EntityType.Builder.of(BugCollector::new, MobCategory.MISC).sized(0.6F, 1.95F)
+                () -> EntityType.Builder.of(BugCollector::new, MobCategory.MISC)
+                        .sized(0.6F, 1.95F)
                     .build(new ResourceLocation(BroglisBugs.MOD_ID, "bug_collector").toString()));
+
+    public static final RegistryObject<EntityType<EntityWorm>> ENTITY_WORM =
+            ENTITY_TYPES.register("entity_worm",
+                    () -> EntityType.Builder.of(EntityWorm::new, MobCategory.CREATURE)
+                            .clientTrackingRange(9)
+                            .sized(0.75f, 0.5f)
+                            .build(new ResourceLocation(BroglisBugs.MOD_ID, "entity_worm").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

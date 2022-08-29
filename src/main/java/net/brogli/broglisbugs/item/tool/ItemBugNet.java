@@ -52,6 +52,9 @@ public class ItemBugNet extends TieredItem {
                 case "entity.broglisbugs.entity_ant":
                     inventory.add(new ItemStack(BroglisBugsItems.ITEM_ANT.get()));
                     break;
+                case "entity.broglisbugs.entity_hercules_beetle":
+                    inventory.add(new ItemStack(BroglisBugsItems.ITEM_HERCULES_BEETLE.get()));
+                    break;
             }
         }
 
