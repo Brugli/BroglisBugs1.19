@@ -3,6 +3,7 @@ package net.brogli.broglisbugs.item;
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.item.custom.ItemAnt;
 import net.brogli.broglisbugs.item.custom.ItemBananaSlug;
+import net.brogli.broglisbugs.item.custom.ItemHerculesBeetle;
 import net.brogli.broglisbugs.item.custom.ItemLadybird;
 import net.brogli.broglisbugs.item.custom.ItemSlug;
 import net.brogli.broglisbugs.item.custom.ItemSnail;

@@ -5,6 +5,7 @@ import java.util.Random;
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
+import net.brogli.broglisbugs.entity.custom.EntityWorm;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
