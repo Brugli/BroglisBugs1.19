@@ -6,10 +6,9 @@ import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
 import net.brogli.broglisbugs.entity.custom.EntityWorm;
+import net.brogli.broglisbugs.util.ModTagsUtils;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,9 +30,9 @@ public class ModForgeEvents {
                     event.getLevel().addFreshEntity(entityStickInsect);
                 }
             }
-            if (event.getState().getBlock() instanceof GrassBlock){
+
+            if (ModTagsUtils.isMemberOfBlockTag(BlockTags.DIRT, event.getState().getBlock())){
                 if (RandF >= 0.0F && RandF <= 0.02F) {
-                    System.out.println("Worm Appeared");
                     EntityWorm entityWorm = new EntityWorm(BroglisBugsEntityTypes.ENTITY_WORM.get(), (Level) event.getLevel());
                     entityWorm.setPos(event.getPos().getX() + 0.5F, event.getPos().getY(), event.getPos().getZ() + 0.5F);
                     event.getLevel().addFreshEntity(entityWorm);
