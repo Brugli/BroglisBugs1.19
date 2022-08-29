@@ -1,24 +1,8 @@
 package net.brogli.broglisbugs.entity.client;
 
-import com.ibm.icu.text.Normalizer2;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.custom.BugCollector;
-import net.brogli.broglisbugs.entity.custom.EntityBananaSlug;
-import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
-import net.minecraft.client.model.*;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.common.Mod;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;
 import software.bernie.geckolib3.model.AnimatedGeoModel;

@@ -1,19 +1,15 @@
 package net.brogli.broglisbugs.event;
 
+import java.util.Random;
+
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.block.custom.BlockSalt;
 import net.brogli.broglisbugs.entity.BroglisBugsEntityTypes;
 import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = BroglisBugs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModForgeEvents {

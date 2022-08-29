@@ -1,7 +1,6 @@
 package net.brogli.broglisbugs.entity.client;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.entity.custom.EntitySlug;
 import net.brogli.broglisbugs.entity.custom.EntitySnail;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;

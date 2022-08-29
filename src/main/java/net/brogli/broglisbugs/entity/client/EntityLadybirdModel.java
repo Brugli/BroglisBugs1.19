@@ -2,7 +2,6 @@ package net.brogli.broglisbugs.entity.client;
 
 import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.entity.custom.EntityLadybird;
-import net.brogli.broglisbugs.entity.custom.EntitySlug;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;

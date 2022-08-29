@@ -1,7 +1,6 @@
 package net.brogli.broglisbugs.entity.client;
 
 import net.brogli.broglisbugs.BroglisBugs;
-import net.brogli.broglisbugs.entity.custom.EntityBananaSlug;
 import net.brogli.broglisbugs.entity.custom.EntityStickInsect;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
