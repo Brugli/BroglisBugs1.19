@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values":
+	[
+		"broglisbugs:entity_slug",
+		"broglisbugs:entity_banana_slug",
+		"broglisbugs:entity_ladybird",
+		"broglisbugs:entity_snail",
+		"broglisbugs:entity_stick_insect",
+		"broglisbugs:entity_ant",
+		"broglisbugs:entity_hercules_beetle",
+		"broglisbugs:entity_worm"
+	]
+}
