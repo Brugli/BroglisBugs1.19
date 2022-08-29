@@ -1,7 +1,13 @@
 package net.brogli.broglisbugs.item.tool;
 
+import net.brogli.broglisbugs.BroglisBugs;
 import net.brogli.broglisbugs.item.BroglisBugsItems;
+import net.brogli.broglisbugs.util.ModTags;
+import net.brogli.broglisbugs.util.ModTagsUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,7 +30,7 @@ public class ItemBugNet extends TieredItem {
 
         Inventory inventory = Inventory(player);
 
-        if (player.isHolding(this)) {
+        if (player.isHolding(this) && ModTagsUtils.isMemberOfEntityTag(ModTags.Entities.NETTABLE_ENTITIES, entity)) {
 
             EntityType<?> entityType = entity.getType();
 
@@ -54,6 +60,9 @@ public class ItemBugNet extends TieredItem {
                     break;
                 case "entity.broglisbugs.entity_hercules_beetle":
                     inventory.add(new ItemStack(BroglisBugsItems.ITEM_HERCULES_BEETLE.get()));
+                    break;
+                case "entity.broglisbugs.entity_worm":
+                    inventory.add(new ItemStack(BroglisBugsItems.ITEM_WORM.get()));
                     break;
             }
         }

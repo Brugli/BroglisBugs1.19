@@ -8,6 +8,7 @@ import net.brogli.broglisbugs.item.custom.ItemLadybird;
 import net.brogli.broglisbugs.item.custom.ItemSlug;
 import net.brogli.broglisbugs.item.custom.ItemSnail;
 import net.brogli.broglisbugs.item.custom.ItemStickInsect;
+import net.brogli.broglisbugs.item.custom.ItemWorm;
 import net.brogli.broglisbugs.item.tool.ItemBugNet;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -115,6 +116,10 @@ public class BroglisBugsItems {
     public static final RegistryObject<ItemAnt> ITEM_ANT = ITEMS.register("item_ant",
             () -> new ItemAnt(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
                     .food(new FoodProperties.Builder().nutrition(1).saturationMod(0).alwaysEat().build())));
+
+    public static final RegistryObject<ItemWorm> ITEM_WORM = ITEMS.register("item_worm",
+            () -> new ItemWorm(new Item.Properties().stacksTo(64).tab(BroglisBugsCreativeModeTab.BROGLISBUGS_TAB)
+                .food(new FoodProperties.Builder().nutrition(1).saturationMod(0).alwaysEat().build())));
 
     // Tools
 
