@@ -25,7 +25,7 @@ public class ModForgeEvents {
                 if (RandF >= 0.0F && RandF <= 0.05F) {
                     EntityStickInsect entityStickInsect = new EntityStickInsect(
                             BroglisBugsEntityTypes.ENTITY_STICK_INSECT.get(), (Level) event.getLevel());
-                    entityStickInsect.setPos(event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
+                    entityStickInsect.setPos(event.getPos().getX() + 0.5F, event.getPos().getY(), event.getPos().getZ() + 0.5F);
                     event.getLevel().addFreshEntity(entityStickInsect);
                 }
             }
